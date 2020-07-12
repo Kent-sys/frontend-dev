@@ -1,0 +1,275 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+
+body{
+    font-family: 'Kameron', 'Noto Sans JP', sans-serif;
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+
+.font-sm{
+    font-size: 14px;
+}
+.font-md{
+    font-size: 17px;
+}
+.font-lr{
+    font-size: 17px;
+}
+.font-lg{
+    font-size: 25px;
+}
+
+
+.mb-sm{
+    margin-bottom: 16px !important;
+}
+.mb-lg{
+    margin-bottom: 80px !important;
+}
+.pb-sm{
+    padding-bottom: 16px !important;
+}
+.pb-lg{
+    padding-bottom: 80px !important;
+}
+
+.content-width{
+    width: 90%;
+    margin: 0 auto;
+    max-width: $contentMaxwidth;
+}
+
+.sub-title{
+    @extend .font-sm;
+    color: $cSubTitle;
+}
+
+.main-title{
+    @extend .font-lg;
+    font-weight: 600;
+    margin-bottom: 0;
+}
+
+.flex{
+    display: flex;
+    flex-direction: column;
+}
+
+.purple{
+    color: $cWineRed;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: transparent;
+    height: 100px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 100;
+
+    &__nav{
+        display: none;
+    }
+
+    &__ul{
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    &__li{
+        padding: 0;
+        margin-left: 20px;
+
+        & > a{
+            color: $cBlack;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+    }
+
+    & .logo{
+        font-size: 38px;
+        justify-content: center;
+    }
+
+    &__inner{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;        
+        @extend .content-width;
+    }
+
+    &.triggered{
+        background-color: rgba(255,255, 255, 0.9);
+        box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+    }
+}
+
+#container{
+    background-color: $cWhite;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.travel{
+    @extend .content-width;
+    @extend .mb-lg;
+    &__inner{
+        @extend .flex;
+        justify-content: space-between;
+        padding: 15px;
+        background-color: $cBgGray;
+        position: relative;
+        z-index: 0;
+    }
+    &__sub{
+        @extend .mb-sm;
+    }
+    &__img{
+        height: 300px;
+        @extend .mb-sm;
+        transition: box-shadow 1ms linear 0.8s;
+        
+
+        & > img{
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            z-index: -1;
+        }
+
+        &.inview{
+            box-shadow: inset 0 0 30px $cBlack;
+        }
+    }
+    &__texts{
+        @extend .pb-sm;
+    }
+}
+
+.houses{
+    @extend .content-width;
+    @extend .mb-lg;
+
+    &__inner{
+        @extend .flex;
+    }
+
+    &__title{
+        @extend .font-lr;
+        @extend .mb-sm;
+    }
+    &__btn{
+        text-align: center;
+        flex-basis: 100%;
+    }
+}
+
+// #content{
+//     padding-top: 100px;
+// }
+
+.popular{
+    &__header{
+        @extend .content-width;
+    }
+    &__inner{
+        position: relative;
+
+        &::before{
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 90%;
+            background-color: $cBgGray;
+        }
+    }
+    &__container{
+        position: relative;
+        @extend .flex;
+        @extend .content-width;
+        @extend .pb-sm;
+        z-index: 2;
+    }
+    &__title{
+        @extend .font-md;
+        @extend .mb-sm;
+    }
+    &__btn{
+        text-align: center;
+        flex-basis: 100%;
+        @extend .mb-lg;
+    }
+    &__img{
+        height: 150px;
+        overflow: hidden;
+        margin-bottom: 5px;
+
+        & > img{
+            object-fit: cover;
+            height: 100%;
+            width: 100%;
+        }
+    }
+}
+
+.logo{
+    font-size: 42px;
+    display: flex;
+
+    &__img{
+        width:0.7em;
+    }
+    &__world{
+        color: $cWineRed;
+    }
+}
+
+.footer{
+    padding: 60px 0;
+    @extend .content-width;
+
+    &__nav{
+        @extend .flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+    &__ul{
+        @extend .flex;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    &__li{
+        padding: 0;
+        margin: 10px;
+
+        & > a{
+            color: $cSubTitle;
+        }
+    }
+    &__copyright{
+        margin-top: 32px;
+    }
+
+    & .logo{
+        font-size: 38px;
+        justify-content: center;
+    }
+}
